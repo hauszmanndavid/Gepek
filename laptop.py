@@ -1,9 +1,9 @@
-file = open("gep.txt","r", encoding="UTF-8")
-file2 = open("gep.txt","w")
+file = open("gep2.txt","r", encoding="UTF-8")
+
 
 Llaptop = []
 
-for i in file2:
+for i in file:
     if(i[-1]=='\n'):
         Llaptop.append(i[:-1].split('\t'))
     else:
@@ -16,7 +16,11 @@ del Llaptop[0]
 
 
 #2
-
+osszeg=0
+for i in range(len(Llaptop)):
+   osszeg += int(Llaptop[i][2])
+   
+print("Átlag ennyi merevlemez van a gépeken: ", round(osszeg/len(Llaptop),2))
 
 
 #3
@@ -38,11 +42,22 @@ print("A legnagyobb colos kijelző: ")
 
 
 #5
-giga = 0
+egygb = []
+kettogb = []
+haromgb = []
+negygb = []
 
 for i in range(len(Llaptop)):
-    (giga.append(Llaptop[i][2]))
+    if list[i][2] == 1024:
+        egygb.append(list[i][2])
+    elif list[i][2] ==2048:
+        kettogb.append(list[i][2])
+    elif list[i][2] ==3072:
+        haromgb.append(list[i][2])
+    elif list[i][2] ==4096:
+        negygb.append(list[i][2])
 
-print("Ennyi 1GB: ", giga.count, "Ennyi 2GB: ", giga.count,  "Ennyi 3GB: ", giga.count, "Ennyi 4GB: ", giga.count)
+print(len(egygb),len(kettogb),len(haromgb),len(negygb))
+
 
 
